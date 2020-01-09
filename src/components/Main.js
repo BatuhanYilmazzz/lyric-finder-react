@@ -1,10 +1,10 @@
 import React from 'react';
-import Tracks from './Tracks';
+import TrackList from './TrackList';
 
 const Main = () => {
   return (
     <div>
-      <Tracks />
+      <TrackList />
     </div>
   );
 };

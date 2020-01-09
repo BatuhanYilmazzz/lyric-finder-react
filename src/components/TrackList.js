@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LyricContext } from '../context/LyricContext';
 
 const TrackList = () => {
-  return <div>Tracks</div>;
+  const { tracks } = useContext(LyricContext);
+  return <div></div>;
 };
 
 export default TrackList;
