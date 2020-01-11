@@ -5,14 +5,16 @@ export const LyricContext = createContext();
 const API_KEY = '7e2ea89a96ddc2fa75e74cc502305d56';
 
 const LyricContextProvider = props => {
-  const [tracks, setTrackList] = useState([]);
-  const [count, setCount] = useState(0);
+  const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
     axios
-      .get('https://jsonplaceholder.typicode.com/posts')
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=hot&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=${API_KEY}`
+      )
       .then(res => {
-        setTrackList(res.data);
+        setTracks(res.data.message.body);
+        console.log(res.data.message.body);
       })
       .catch(err => err);
   }, []);
